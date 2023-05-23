@@ -1,4 +1,4 @@
-function* bubbleSort(arr) {
+const bubbleSort =(arr)=> {
     var swapped = false;
     console.log("in");
 
@@ -19,7 +19,7 @@ function* bubbleSort(arr) {
     }
 }
 
-function* selectionSort(arr) {
+const selectionSort =(arr)=> {
     for (let i = 0; i < arr.length - 1; i++) {
         let minIdx = i;
         for (let j = i + 1; j < arr.length; j++) {
@@ -33,11 +33,11 @@ function* selectionSort(arr) {
         yield;
     }
 }
-function* mergeSort(arr) {
+const mergeSort =(arr)=> {
     yield* _mergeSort(arr, 0, arr.length - 1);
 }
 
-function* _mergeSort(arr, l, r) {
+const _mergeSort =(arr, l, r)=> {
     if (l >= r) return;
     const m = l + Math.floor((r - l) / 2);
     yield* _mergeSort(arr, l, m);
@@ -45,7 +45,7 @@ function* _mergeSort(arr, l, r) {
     yield* _merge(arr, l, m, r);
 }
 
-function* _merge(arr, l, m, r) {
+const _merge =(arr, l, m, r)=> {
     const n1 = m - l + 1;
     const n2 = r - m;
     let L = new Array(n1);
@@ -91,12 +91,12 @@ function* _merge(arr, l, m, r) {
     }
 }
 
-function* quickSortLomuto(arr) {
+const  quickSortLomuto=(arr)=> {
     //tricky to understand
     yield* _quickSortLomuto(arr, 0, arr.length - 1);
 }
 
-function* _quickSortLomuto(arr, left, right) {
+const _quickSortLomuto =(arr, left, right)=> {
     if (left >= right) {
         return;
     }
@@ -114,7 +114,7 @@ function* _quickSortLomuto(arr, left, right) {
     yield* _quickSortLomuto(arr, idx + 1, right);
 }
 
-function* _partitionLomuto(arr, left, right) {
+const _partitionLomuto =(arr, left, right)=> {
     let pivot = arr[right].val;
     let i = left - 1;
     for (let j = left; j < right; j++) {
@@ -130,7 +130,7 @@ function* _partitionLomuto(arr, left, right) {
     return i + 1;
 }
 
-function swap(arr, x, y) {
+const swap =(arr, x, y)=> {
     //set color and swap
     arr[x].swap = true;
     arr[y].swap = true;
@@ -139,13 +139,13 @@ function swap(arr, x, y) {
     arr[x] = arr[y];
     arr[y] = temp;
 }
-function compare(arr, x, y) {
+const compare=(arr, x, y)=> {
     //set color and compare
     arr[x].compare = true;
     arr[y].compare = true;
     return arr[x].val > arr[y].val;
 }
-function find_and_compare(val1, val2) {
+const find_and_compare =(val1, val2)=> {
     //find the loc of val in arr and set the color
     index_1 = 0;
     index_2 = 0;
@@ -160,7 +160,7 @@ function find_and_compare(val1, val2) {
     arr[index_1].compare = true;
     arr[index_2].compare = true;
 }
-function find_and_swap(val1, val2) {
+const find_and_swap =(val1, val2)=> {
     //find the loc of val in arr and set the color
     index_1 = 0;
     index_2 = 0;
@@ -175,7 +175,7 @@ function find_and_swap(val1, val2) {
     arr[index_1].swap = true;
     arr[index_2].swap = true;
 }
-function insertionSort(inputArr) {
+const insertionSort =(inputArr)=> {
     let n = inputArr.length;
         for (let i = 1; i < n; i++) {
             // Choosing the first element in our unsorted subarray
